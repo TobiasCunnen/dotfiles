@@ -1,0 +1,39 @@
+---
+- name: Create Symlink
+  hosts: localhost
+  tasks:
+    - name: Create symlink for Neovim
+      file:
+        src: "{{ playbook_dir }}/nvim"
+        dest: "~/.config/nvim"
+        state: link
+    - name: Create symlink for Hyprland
+      file:
+        src: "{{ playbook_dir }}/hypr"
+        dest: "~/.config/hypr"
+        state: link
+    - name: Create symlink for eww
+      file:
+        src: "{{ playbook_dir }}/eww"
+        dest: "~/.config/eww"
+        state: link
+    - name: Create symlink for Kitty
+      file:
+        src: "{{ playbook_dir }}/kitty"
+        dest: "~/.config/kitty"
+        state: link
+    - name: Create symlink for rofi
+      file:
+        src: "{{ playbook_dir }}/rofi"
+        dest: "~/.config/rofi"
+        state: link
+    - name: Create symlink for waybar
+      file:
+        src: "{{ playbook_dir }}/waybar"
+        dest: "~/.config/waybar"
+        state: link
+    - name: Create symlink for zsh
+      file:
+        src: "{{ playbook_dir }}/zshrc"
+        dest: "~/.zshrc"
+        state: link

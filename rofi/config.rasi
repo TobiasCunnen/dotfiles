@@ -1,0 +1,94 @@
+@theme "/dev/null"
+
+/** Colors *******************************************/
+// $bg: #171a21;
+// $bg-alt: #1b2838;
+// $fg: #2a475e;
+// $highlight: #66c0f4;
+// $light: #c7d5e0;
+
+configuration {
+  display-drun: "";
+  drun-display-format: "{icon} {name}";
+  show-icons: true;
+  icon-theme: "Papirus";
+  modi: "drun";
+}
+
+* {
+  bg: #171a21;
+  bg-alt: #1b2838;
+  selected: #66c0f4;
+
+  fg: #2a475e;
+  fg-alt: #c7d5e0;
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width: 400;
+  height: 435;
+  background-color: @bg;
+  border: 15px solid;
+  border-radius: 12;
+}
+
+element {
+  margin: 5 0;
+  background-color: transparent;
+  text-color: white;
+}
+
+element selected {
+  text-color: @fg;
+  background-color: @selected;
+  border-radius: 12;
+}
+
+element-text {
+  font: "Meslo bold 12";
+  background-color: transparent;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+element-icon {
+  size: 50;
+  padding: 0 8;
+  background-color: transparent;
+}
+
+entry {
+  padding: 12;
+  background-color: @fg;
+  text-color: white;
+}
+
+inputbar {
+  children: [prompt, entry];
+  background-color: @fg;
+  border-radius: 12;
+}
+
+listview {
+  background-color: @bg;
+  columns: 1;
+  lines: 10;
+}
+
+mainbox {
+  children: [inputbar, listview];
+  background-color: @bg;
+  border-radius: 12;
+}
+
+prompt {
+  enabled: true;
+  padding: 12;
+  background-color: @fg;
+  text-color: white;
+}

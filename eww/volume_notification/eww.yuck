@@ -1,0 +1,27 @@
+;; volume slider
+(defpoll volume :interval "0.1s" "~/.config/eww/volume_notification/get_volume.sh")
+(defpoll volume-slider-indicator :interval "0s" "scripts/volume-slider.sh")
+
+;; brightness slider
+(defpoll brightness :interval "1s" "~/.config/eww/Main/scripts/brightness-slider.sh --value")
+(defpoll brightness-slider-indicator :interval "0s" "scripts/brightness-slider.sh --icon")
+
+;;volume slider
+(defwidget volume-slider [value onchange icon]
+  (box :orientation "v" :class "volume-slider-box" :space-evenly "false"
+    (box :class "icon" icon)
+    (scale :class "battery"
+      :value value
+      :orientation "v"
+      :height 320
+      :active true
+      :max 101
+      :min 0
+      :flipped true
+      :onchange onchange)
+    ))
+
+;; volume-slider
+(defwindow volume-slider :stacking "overlay" :monitor 0 :focusable "false" :screen 1
+  :geometry (geometry :x 35 :anchor "right center")
+  (volume-slider :value volume :onchange "amixer set Master {}%" :icon "󰕾"))

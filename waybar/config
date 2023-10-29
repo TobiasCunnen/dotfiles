@@ -1,0 +1,30 @@
+{
+    // General Settings
+
+    // Position TOP
+    "layer": "top",
+    "spacing": 10,
+
+    // Load Modules
+    "include": ["~/.config/waybar/modules.json"],
+
+    // Modules Left
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+
+    // Modules Center
+    "modules-center": [
+    ],
+
+    // Modules Right
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "bluetooth",
+        "battery",
+        "network",
+        "clock",
+        "custom/powermenu"
+    ],
+}

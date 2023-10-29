@@ -1,0 +1,25 @@
+/** Colors *******************************************/
+$bg: #171a21;
+$bg-alt: #1b2838;
+$fg: #2a475e;
+$highlight: #66c0f4;
+$light: #c7d5e0;
+
+* {
+  all: unset;
+}
+
+.powermenu {
+  background-color: $bg;
+  padding:5;
+  border-radius: 14;
+}
+
+.power-button {
+  background-color:$fg;
+  border-radius: 14;
+}
+
+.power-button:hover {
+  background-color:$highlight;
+}

@@ -1,0 +1,68 @@
+(defvar menu-reveal false)
+
+(defwidget sleep []
+  (eventbox
+    :class "power-button"
+    :onclick "eww close powermenu && eww close powermenu-closer && systemctl suspend"
+    :cursor "pointer"
+    (image :path "/home/tcunnen/.config/eww/powermenu/sleep.svg" :image-width 75 :image-height 75)))
+
+(defwidget logout []
+  (eventbox
+    :class "power-button"
+    :onclick "hyprctl dispatch exit"
+    :cursor "pointer"
+    (image :path "/home/tcunnen/.config/eww/powermenu/logout.svg" :image-width 75 :image-height 75)))
+
+(defwidget reboot []
+  (eventbox
+    :class "power-button"
+    :onclick "reboot"
+    :cursor "pointer"
+    (image :path "/home/tcunnen/.config/eww/powermenu/reboot.svg" :image-width 75 :image-height 75)))
+
+(defwidget shutdown []
+  (eventbox
+    :class "power-button"
+    :onclick "shutdown now"
+    :cursor "pointer"
+    (image :path "/home/tcunnen/.config/eww/powermenu/power-off.svg" :image-width 75 :image-height 75)))
+
+(defwidget powermenu []
+  (box
+    :class "powermenu"
+    :spacing 5
+    :space-evenly true
+    :orientation "v"
+    (sleep)
+    (logout)
+    (reboot)
+    (shutdown)))
+
+(defwidget anim []
+  (revealer
+    :reveal menu-reveal
+    :transition "slideleft"
+    :duration "350ms"
+    (powermenu)))
+
+(defwidget closer [window]
+  (eventbox :onclick "eww close ${window} && eww close ${window}-closer"))
+ 
+(defwindow powermenu-closer
+  :monitor 0
+  :geometry (geometry :width "100%" :height "100%")
+  :stacking "fg"
+  :focusable false
+  (closer :window "powermenu"))
+
+(defwindow powermenu
+  :monitor "0"
+  :namespace "powermenu"
+  :geometry (geometry
+              :x "1%"
+              :y "0px"
+              :width "125px"
+              :height "450px"
+              :anchor "right center")
+  (powermenu))

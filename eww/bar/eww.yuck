@@ -1,0 +1,82 @@
+(deflisten workspaces_box "~/.config/eww/bar/scripts/get-workspaces")
+(defpoll time :interval "10s"
+  "date '+%H:%M'")
+
+(defwidget bar []
+  (centerbox
+    :class "bar"
+    :orientation "h"
+      (workspaces)
+      (music)
+      (info)))
+
+(defwidget workspaces []
+  (box 
+    :class "workspaces"
+    :orientation "h"
+    :halign "start"
+    :space-evenly false
+    (literal :content workspaces_box)))
+
+(defwidget clock []
+  (box 
+    :class "clock"
+    :orientation "h" 
+    :halign "center" 
+    time))
+
+(defwidget calender []
+  (box
+    "calender"))
+
+(defwidget info []
+  (box
+    :class "info"
+    :orientation "h"
+    :halign "end"
+    (clock)
+    (powermenu)
+    ))
+
+(defwidget system-tray []
+  (box 
+    :class "system-tray"
+    "system-tray"))
+
+(defwidget music []
+  (box
+    :visible false
+    "music"))
+
+(defwidget volume []
+  (box
+    "volume"))
+
+(defwidget internet []
+  (box
+    "internet"))
+
+(defwidget vpn []
+  (box
+    "vpn"))
+
+(defwidget battery []
+  (box
+    "battery"))
+
+(defwidget powermenu []
+  (button
+    :class "powermenu"
+    :onclick "eww open powermenu"
+    ""))
+
+(defwindow bar
+  :monitor 0
+  :stacking "fg"
+  :exclusive true
+  :geometry
+  (geometry
+    :width "99%"
+    :anchor "top center")
+  (bar))
+

@@ -1,0 +1,58 @@
+
+/** Colors *******************************************/
+$bg: #171a21;
+$bg-alt: #1b2838;
+$fg: #2a475e;
+$highlight: #66c0f4;
+$light: #c7d5e0;
+
+/** Global *******************************************/
+* {
+  all: unset;
+  font-family: "Meslo";
+  transition: 200ms ease-out;
+}
+
+.bar {
+  margin-top: 10;
+  font-size: 15;
+  font-weight: bold;
+  border-radius: 14;
+}
+
+.workspaces {
+  padding: 5;
+  background-color: $bg;
+  border-radius: 14;
+}
+
+.workspace-button {
+  &:hover {
+    color:$highlight;
+  }
+  
+}
+
+.active-workspace-button {
+}
+
+.clock {
+  background-color: $bg;
+}
+
+.info {
+  padding-right: 5;
+  padding-left: 10;
+  background-color: $bg;
+  border-radius: 14;
+}
+
+.system-tray {
+  background-color: $fg;
+}
+
+.powermenu {
+  &:hover {
+    color:$highlight;
+  }
+}
