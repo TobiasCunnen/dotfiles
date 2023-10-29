@@ -1,5 +1,9 @@
 # Dotfiles
 This repo and readme describes how I configure and manage my packages on a linux sytem.
+There are three programs required:
+- git (to clone this repo)
+- ansible (to run the playbook)
+- nix (to install all the packages)
 
 ## Configuration
 
@@ -19,4 +23,10 @@ Packeges are installed with the `nix` package manager. `Flakes` are used to inst
 Then you can run the following commands.
 
 ```
+```
+
+To update the packages run.
+
+```
+nix flake update
 ```
