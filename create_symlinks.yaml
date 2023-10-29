@@ -32,6 +32,11 @@
         src: "{{ playbook_dir }}/waybar"
         dest: "~/.config/waybar"
         state: link
+    - name: Create symlink for Nix
+      file:
+        src: "{{ playbook_dir }}/nix"
+        dest: "~/.config/nix"
+        state: link
     - name: Create symlink for zsh
       file:
         src: "{{ playbook_dir }}/zshrc"
