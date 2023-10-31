@@ -1,18 +1,5 @@
+eval "$(starship init zsh)"
 
-    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-typeset -U path cdpath fpath manpath
-
-for profile in ${(z)NIX_PROFILES}; do
-  fpath+=($profile/share/zsh/site-functions $profile/share/zsh/$ZSH_VERSION/functions $profile/share/zsh/vendor-completions)
-done
-
-HELPDIR="/nix/store/sn59qaijwgpf8n41khl60mfnfbxyb16x-zsh-5.9/share/zsh/$ZSH_VERSION/help"
-
-
-
-
-path+="$HOME/.zsh/plugins/powerlevel10k"
-fpath+="$HOME/.zsh/plugins/powerlevel10k"
 path+="$HOME/.zsh/plugins/zsh-history-substring-search"
 fpath+="$HOME/.zsh/plugins/zsh-history-substring-search"
 path+="$HOME/.zsh/plugins/zsh-vi-mode"
@@ -28,10 +15,6 @@ source /nix/store/kvml2f01igiv690pb192sjh3m2c4wmal-zsh-autosuggestions-0.7.0/sha
 
 
 
-
-if [[ -f "$HOME/.zsh/plugins/powerlevel10k/share/zsh-powerlevel10k/powerlevel10k.zsh-theme" ]]; then
-  source "$HOME/.zsh/plugins/powerlevel10k/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
-fi
 if [[ -f "$HOME/.zsh/plugins/zsh-history-substring-search/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ]]; then
   source "$HOME/.zsh/plugins/zsh-history-substring-search/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
 fi
@@ -66,9 +49,9 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
 fi
 
 
-      bindkey -M vicmd 'k' history-substring-search-up 
+bindkey -M vicmd 'k' history-substring-search-up 
 
-      bindkey -M vicmd 'j' history-substring-search-down 
+bindkey -M vicmd 'j' history-substring-search-down 
 
     
 
@@ -79,5 +62,4 @@ alias e='nvim'
 
 
 source /nix/store/zssic984hrqxzc5anrf5cyjh4xarlg57-zsh-syntax-highlighting-0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 
