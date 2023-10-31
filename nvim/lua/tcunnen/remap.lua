@@ -30,3 +30,9 @@ vim.keymap.set("n", "H", ":wincmd h<CR>")
 vim.keymap.set("n", "K", ":wincmd k<CR>")
 vim.keymap.set("n", "J", ":wincmd j<CR>")
 vim.keymap.set("n", "L", ":wincmd l<CR>")
+
+-- Undotree
+vim.keymap.set('n', '<leader>u', function()
+	vim.cmd.UndotreeToggle()
+	vim.cmd.UndotreeFocus()
+end)

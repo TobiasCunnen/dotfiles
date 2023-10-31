@@ -144,4 +144,8 @@ require("lazy").setup({
     {
         'tpope/vim-fugitive'
     },
+    -- Undo tree 
+    {
+        'mbbill/undotree'
+    },
 })
