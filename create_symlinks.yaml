@@ -37,6 +37,11 @@
         src: "{{ playbook_dir }}/nix"
         dest: "~/.config/nix"
         state: link
+    - name: Create symlink for starship
+      file:
+        src: "{{ playbook_dir }}/starship.toml"
+        dest: "~/.config/starship.toml"
+        state: link
     - name: Create symlink for zsh
       file:
         src: "{{ playbook_dir }}/zshrc"

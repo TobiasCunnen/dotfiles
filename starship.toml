@@ -1,0 +1,60 @@
+format = """
+[ ](fg:bold)\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+\n$character"""
+
+right_format = """
+$rust\
+$golang\
+$lua\
+$docker_context\
+"""
+
+[directory]
+style = "fg:bold"
+format = "[  $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"~" = "󰋜 "
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "fg:bold #6fff00"
+format = '[$symbol $branch ]($style)'
+
+[git_status]
+format = '[($all_status$ahead_behind )]($style)'
+
+[git_state]
+style = "fg:#6fff00"
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+[rust]
+symbol = ""
+format = '[$symbol $version ]()'
+
+[golang]
+symbol = ""
+format = '[$symbol $version ]()'
+
+[lua]
+symbol = " "
+format = '[$symbol $version ]()'
+
+[docker_context]
+format = 'via [🐋 $context](blue bold)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "fg:#a0a9cb bg:#001d2230"
+format = '[$time ]($style)'
