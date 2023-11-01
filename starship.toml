@@ -1,6 +1,6 @@
 format = """
 ${custom.distro}\
-$username\
+$hostname\
 $directory\
 $git_branch\
 $git_status\
@@ -14,6 +14,7 @@ $golang\
 $lua\
 $python\
 """
+
 [character]
 success_symbol = "[](grey)"
 error_symbol = "[](bold red)"
@@ -21,6 +22,9 @@ vimcmd_symbol = "[](grey)"
 vimcmd_replace_one_symbol ="[r]()"
 vimcmd_replace_symbol ="[R]()"
 vimcmd_visual_symbol ="[V]()"
+
+[hostname]
+format = "[$hostname ](bold yellow)"
 
 [custom.distro]
 description = "Check what is the current distro and shows that icon"
