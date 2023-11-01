@@ -1,5 +1,5 @@
 format = """
-[ ](fg:bold blue)\
+${custom.blabla}\
 $username\
 $directory\
 $git_branch\
@@ -14,6 +14,26 @@ $golang\
 $lua\
 $python\
 """
+
+[custom.blabla]
+description = "Check what is the current distro and shows that icon"
+style = "fg:bold blue"
+command = """
+os_name=$(grep -oP '(?<=^ID=).*' /etc/os-release)
+
+case $os_name in
+    ubuntu )
+        echo " " ;;
+    nixos )
+        echo " " ;;
+    arch )
+        echo "󰣇 " ;;
+    * )
+        echo " " ;;
+esac
+"""
+when = true
+format = "[$output ]($style)"
 
 [directory]
 style = "fg:bold blue"
