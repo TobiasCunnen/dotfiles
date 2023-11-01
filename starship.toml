@@ -1,5 +1,5 @@
 format = """
-${custom.blabla}\
+${custom.distro}\
 $username\
 $directory\
 $git_branch\
@@ -14,8 +14,15 @@ $golang\
 $lua\
 $python\
 """
+[character]
+success_symbol = "[](grey)"
+error_symbol = "[](bold red)"
+vimcmd_symbol = "[](grey)"
+vimcmd_replace_one_symbol ="[r]()"
+vimcmd_replace_symbol ="[R]()"
+vimcmd_visual_symbol ="[V]()"
 
-[custom.blabla]
+[custom.distro]
 description = "Check what is the current distro and shows that icon"
 style = "fg:bold blue"
 command = """
