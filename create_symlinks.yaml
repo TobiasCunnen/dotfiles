@@ -43,6 +43,11 @@
         src: "{{ playbook_dir }}/starship.toml"
         dest: "~/.config/starship.toml"
         state: link
+    - name: Create symlink for tmux
+      file:
+        src: "{{ playbook_dir }}/tmux"
+        dest: "~/.config/tmux"
+        state: link
     - name: Create symlink for zsh
       file:
         src: "{{ playbook_dir }}/zshrc"
