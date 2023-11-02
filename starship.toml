@@ -65,13 +65,14 @@ style = "fg:bold green"
 format = '[$symbol $branch ]($style)'
 
 [git_status]
-format = '[$conflicted$ahead_behind$staged$modified$stashed]($style)'
+format = '[$conflicted$ahead_behind$untracked$modified$staged$stashed]($style)'
 conflicted = '=${count} '
 ahead = '[⇡${count} ](bold green)'
 behind = '⇣${count} '
 diverged = '⇕⇡${ahead_count}⇣${behind_count} '
 staged = '+${count} '
 modified = '!${count} '
+untracked = '?${count} '
 stashed = '\$${count} '
 
 [rust]
