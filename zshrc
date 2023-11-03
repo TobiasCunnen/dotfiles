@@ -1,5 +1,18 @@
 eval "$(starship init zsh)"
 
+# Zsh history settings
+HISTFILE=~/.histfile
+
+# Make the history file realy realy REALY big
+HISTSIZE=1000000000
+SAVEHIST=1000000000
+
+setopt HIST_EXPIRE_DUPS_FIRST  # Expire dup event first when trimming hist
+setopt HIST_FIND_NO_DUPS       # Do not display previously found event
+setopt HIST_IGNORE_ALL_DUPS    # Delete old event if new is dup
+setopt HIST_IGNORE_DUPS        # Do not record consecutive dup events
+setopt HIST_SAVE_NO_DUPS       # Do not write dup event to hist file
+
 if [[ ! -e ~/.zsh/zsh-syntax-highlighting ]]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 fi
