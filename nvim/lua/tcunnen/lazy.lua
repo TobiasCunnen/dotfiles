@@ -148,4 +148,8 @@ require("lazy").setup({
     {
         'mbbill/undotree'
     },
+    -- Icons
+    {
+        'nvim-tree/nvim-web-devicons'
+    },
 })

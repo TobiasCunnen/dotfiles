@@ -17,7 +17,6 @@
                  cp ${tcunnenProfile} $out/etc/profile.d/tcunnen-profile.sh
                  '')
                     man
-                    neovim
                     starship
                     go
                     lua
