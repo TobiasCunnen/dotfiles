@@ -35,8 +35,8 @@
         state: link
     - name: Create symlink for Nix
       file:
-        src: "{{ playbook_dir }}/nix"
-        dest: "~/.config/nix"
+        src: "{{ playbook_dir }}/nixpkgs"
+        dest: "~/.config/nixpkgs"
         state: link
     - name: Create symlink for starship
       file:

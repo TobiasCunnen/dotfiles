@@ -1,23 +1,15 @@
 ---
-- name: Install Flatpak packages on localhost
+- name: Install GUI applictions with Flatpak
   hosts: localhost
 
   tasks:
-    - name: Update the package manager cache
-      package:
-        name: flatpak
-        state: latest
-
-    - name: Install Flatpak packages
-      ansible.builtin.flatpak:
-        name: "{{ item.name }}"
-        state: present
-        remote: yes
-      loop:
-        - { name: 'org.mozilla.firefox',    remote: 'flathub' }
-        - { name: 'com.bitwarden.desktop',  remote: 'flathub' }
-        - { name: 'com.brave.Browser',      remote: 'flathub' } # or Chrome
-        - { name: 'md.obsidian.Obsidian',   remote: 'flathub' }
-        - { name: 'org.signal.Signal',      remote: 'flathub' }
-        - { name: 'com.valvesoftware.Steam',remote: 'flathub' }
-        - { name: 'com.spotify.Client',     remote: 'flathub' }
+  - name: Install multiple packages
+    community.general.flatpak:
+      name:
+        - org.mozilla.firefox
+        - com.bitwarden.desktop 
+        - com.brave.Browser     
+        - md.obsidian.Obsidian  
+        - org.signal.Signal     
+        - com.valvesoftware.Steam
+        - com.spotify.Client    

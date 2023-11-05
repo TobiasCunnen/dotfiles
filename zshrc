@@ -1,3 +1,5 @@
+source ~/.profile
+
 eval "$(starship init zsh)"
 
 # Zsh history settings
@@ -54,6 +56,7 @@ VI_MODE_SET_CURSOR=true
 
 # Aliases
 alias e='nvim'
+alias nix-install='nix-env -iA nixpkgs.tcunnenPackages'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
