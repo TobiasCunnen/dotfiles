@@ -1,56 +1,23 @@
 ---
-- name: Install packages with Nix
+- name: Install Flatpak packages on localhost
   hosts: localhost
+
   tasks:
-    - name: Install packages
-      command: nix-env -iA nixpkgs.{{ item }}
-      with_items:
-        # Applications
-        - bitwarden
-        - discord
-        - firefox
-        - gammastep
-        - gimp
-        - godot_4
-        - google-chrome
-        - kitty
-        - gnome.nautilus
-        - neovim
-        - mullvad-vpn
-        - obsidian
-        - qbittorrent
-        - signal-desktop
-        - spotify
-        - steam
-        - vlc
-        - virtualbox
-        
-        # Tools
-        - git
-        - wget
-        - ripgrep
-        - fd
-        - fzf
-        - playerctl
-        - z-lua
-        - unzip
+    - name: Update the package manager cache
+      package:
+        name: flatpak
+        state: latest
 
-        # Desktop environment
-        - dunst
-        - libnotify
-        - wofi
-        - rofi-wayland
-        - eww-wayland
-        - wpaperd
-        - waybar
-        - bibata-cursors
-        - papirus-icon-theme
-        - pavucontrol
-
-        # Development
-        - python3
-        - socat
-        - jq
-        - gcc
-        - nodejs_20
-        - rustup
+    - name: Install Flatpak packages
+      ansible.builtin.flatpak:
+        name: "{{ item.name }}"
+        state: present
+        remote: yes
+      loop:
+        - { name: 'org.mozilla.firefox',    remote: 'flathub' }
+        - { name: 'com.bitwarden.desktop',  remote: 'flathub' }
+        - { name: 'com.brave.Browser',      remote: 'flathub' } # or Chrome
+        - { name: 'md.obsidian.Obsidian',   remote: 'flathub' }
+        - { name: 'org.signal.Signal',      remote: 'flathub' }
+        - { name: 'com.valvesoftware.Steam',remote: 'flathub' }
+        - { name: 'com.spotify.Client',     remote: 'flathub' }
