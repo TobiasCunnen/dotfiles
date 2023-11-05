@@ -2,6 +2,7 @@ source ~/.profile
 
 eval "$(starship init zsh)"
 
+export EDITOR=nvim
 # Zsh history settings
 HISTFILE=~/.histfile
 
