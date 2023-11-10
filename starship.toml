@@ -12,6 +12,7 @@ $docker_context\
 $rust\
 $golang\
 $lua\
+$perl\
 $python\
 """
 
@@ -76,17 +77,21 @@ untracked = '?${count} '
 stashed = '\$${count} '
 
 [rust]
-symbol = ""
-format = '[$symbol ](blue)'
+symbol = " "
+format = '[$symbol](blue)'
 
 [golang]
-symbol = ""
-format = '[$symbol ](blue)'
+symbol = " "
+format = '[$symbol](blue)'
 
 [lua]
 symbol = " "
-format = '[$symbol ](blue)'
+format = '[$symbol](blue)'
 
 [python]
-symbol = "  "
+symbol = " "
 format = "[$symbol$virtualenv](blue)"
+
+[perl]
+symbol = " "
+format = "[$symbol](blue)"
