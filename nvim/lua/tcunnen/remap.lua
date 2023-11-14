@@ -22,8 +22,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("n", "<leader>rf", vim.lsp.buf.format)
 
 -- Better mergetool mappings
-vim.keymap.set("n", "gh", "<cmd>diffget //2<CR>")
-vim.keymap.set("n", "gl", "<cmd>diffget //3<CR>")
+vim.keymap.set("n", "<leader>gh", "<cmd>diffget //2<CR>")
+vim.keymap.set("n", "<leader>gl", "<cmd>diffget //3<CR>")
 
 -- Remap window switching
 vim.keymap.set("n", "H", ":wincmd h<CR>")

@@ -35,10 +35,8 @@ require("lazy").setup({
             -- Snippet Engine & its associated nvim-cmp source
             'L3MON4D3/LuaSnip',
             'saadparwaiz1/cmp_luasnip',
-
             -- Adds LSP completion capabilities
             'hrsh7th/cmp-nvim-lsp',
-
             -- Adds a number of user-friendly snippets
             'rafamadriz/friendly-snippets',
         },
@@ -51,10 +49,10 @@ require("lazy").setup({
         main = 'ibl',
         opts = {},
     },
-    { 
+    {
         -- "gc" to comment visual regions/lines
-        'numToStr/Comment.nvim', 
-        opts = {} 
+        'numToStr/Comment.nvim',
+        opts = {}
     },
     {
         -- Fuzzy Finder (files, lsp, etc)
@@ -84,11 +82,11 @@ require("lazy").setup({
         },
         build = ':TSUpdate',
     },
-	{
+    {
         -- Fast file switcher
         'ThePrimeagen/harpoon'
     },
-	{
+    {
         -- Theme
         'folke/tokyonight.nvim'
     },
@@ -151,5 +149,8 @@ require("lazy").setup({
     -- Icons
     {
         'nvim-tree/nvim-web-devicons'
+    },
+    {
+        'tpope/vim-surround'
     },
 })
