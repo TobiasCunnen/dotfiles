@@ -67,14 +67,15 @@ require'nvim-treesitter.configs'.setup {
             },
         },
 
-        swap = {
-            enable = true,
-            swap_next = {
-                ['<leader>a'] = '@parameter.inner',
-            },
-            swap_previous = {
-                ['<leader>A'] = '@parameter.inner',
-            },
-        },
+        -- Don't know what it does and it conflicts with harpoon keybindings
+        -- swap = {
+        --     enable = true,
+        --     swap_next = {
+        --         ['<leader>a'] = '@parameter.inner',
+        --     },
+        --     swap_previous = {
+        --         ['<leader>A'] = '@parameter.inner',
+        --     },
+        -- },
     },
 }
