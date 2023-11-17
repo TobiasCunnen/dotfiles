@@ -40,6 +40,12 @@ return {
             end
         })
 
+        vim.diagnostic.config({
+            virtual_text = {
+                prefix = '', -- Could be '●', '▎', 'x'
+            },
+        })
+
         local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
         for type, icon in pairs(signs) do
             local hl = "DiagnosticSign" .. type

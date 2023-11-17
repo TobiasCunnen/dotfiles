@@ -1,4 +1,4 @@
 -- Git command wrapper
 return {
-    'tpope/vim-fugitive'
+    'tpope/vim-fugitive',
 }
