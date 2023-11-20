@@ -40,3 +40,6 @@ vim.opt.list = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
+
+-- Set global clipboard
+vim.opt.clipboard = "unnamedplus"

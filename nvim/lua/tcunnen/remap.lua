@@ -13,12 +13,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Paste without yank
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- Yank into system clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
-
-vim.keymap.set("n", "<leader>rf", vim.lsp.buf.format)
-
 -- Better mergetool mappings
 vim.keymap.set("n", "<leader>gh", "<cmd>diffget //2<CR>")
 vim.keymap.set("n", "<leader>gl", "<cmd>diffget //3<CR>")

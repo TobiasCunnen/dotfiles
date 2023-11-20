@@ -33,6 +33,7 @@ return {
                 vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
                 vim.keymap.set({ 'n', 'x' }, '<leader>fc', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
                 vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+                vim.keymap.set("n", "<leader>rf", vim.lsp.buf.format, opts)
 
                 vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
                 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
@@ -42,7 +43,7 @@ return {
 
         vim.diagnostic.config({
             virtual_text = {
-                prefix = '', -- Could be '●', '▎', 'x'
+                prefix = '',
             },
         })
 
