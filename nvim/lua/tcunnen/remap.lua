@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
 
+-- Set :W to save because I do this a lot
+vim.keymap.set('c', 'W', 'w')
+
 -- Move highlighted code block
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
