@@ -12,18 +12,30 @@ return {
             end,
         },
         'nvim-tree/nvim-web-devicons',
+        'AckslD/nvim-neoclip.lua',
+        'debugloop/telescope-undo.nvim',
     },
     config = function()
+        require('neoclip').setup()
+
+            -- config = function()
+            -- end,
         local telescope = require("telescope")
-
-        telescope.setup {
-            prompt_prefix = "   ",
-            extension = {
-                'fzf',
+        telescope.setup({
+            defaults = {
+                prompt_prefix = " ㅤ",
+                selection_caret = " ",
             },
-        }
+            extensions = {
+            }
+        })
 
-        -- telescope.load_extension('fzf')
+        telescope.load_extension('fzf')
+        telescope.load_extension('neoclip')
+        vim.keymap.set("n", "<leader>o",  "<cmd>Telescope neoclip<CR>", { desc = "Telescope Neoclip" })
+
+        telescope.load_extension('undo')
+        vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Telescope Undo" })
 
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "[F]ind all [F]iles" })
