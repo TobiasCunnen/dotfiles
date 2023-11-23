@@ -3,6 +3,9 @@ vim.g.mapleader = " "
 -- Set :W to save because I do this a lot
 vim.keymap.set('c', 'W', 'w')
 
+-- Clear search highlight until next search
+vim.keymap.set('n', '<ESC>', ':noh<CR>')
+
 -- Move highlighted code block
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

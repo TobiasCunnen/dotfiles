@@ -9,7 +9,14 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Disable search highlight, unless active search
-vim.opt.hlsearch = false
+-- vim.opt.hlsearch = false
+-- vim.cmd([[
+--         augroup vimrc-incsearch-highlight
+--         autocmd!
+--         autocmd CmdlineEnter /,\? :set hlsearch
+--         autocmd CmdlineLeave /,\? :set nohlsearch
+--         augroup END
+--         ]])
 vim.opt.incsearch = true
 
 -- Case-insensitive searching UNLESS \C or capital in search
@@ -30,12 +37,10 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+-- Removes the default mode prompt
 vim.o.showmode = false
 
--- Set trailing whitespace to -
-vim.opt.listchars = {
-    trail = "-",
-}
+-- Shows trailing white spaces and more
 vim.opt.list = true
 
 -- Keep signcolumn on by default
