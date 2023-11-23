@@ -20,6 +20,13 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>gh", "<cmd>diffget //2<CR>")
 vim.keymap.set("n", "<leader>gl", "<cmd>diffget //3<CR>")
 
+-- Run perl tidy
+vim.keymap.set("n", "<leader>pt", function()
+    local position = vim.api.nvim_win_get_cursor(0)
+    vim.cmd(":%! perltidy -fnl -b -bext='/'")
+    vim.api.nvim_win_set_cursor(0, position)
+end)
+
 -- Remap window switching
 -- vim.keymap.set("n", "H", ":wincmd h<CR>")
 -- vim.keymap.set("n", "K", ":wincmd k<CR>")
