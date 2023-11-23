@@ -16,10 +16,6 @@ return {
         'debugloop/telescope-undo.nvim',
     },
     config = function()
-        require('neoclip').setup()
-
-            -- config = function()
-            -- end,
         local telescope = require("telescope")
         telescope.setup({
             defaults = {
@@ -27,15 +23,25 @@ return {
                 selection_caret = " ",
             },
             extensions = {
+                undo = {
+                    mappings = {
+                        i = {
+                            ["<C-CR>"] = require("telescope-undo.actions").yank_additions,
+                            ["<S-CR>"] = require("telescope-undo.actions").yank_deletions,
+                            ["<CR>"] = require("telescope-undo.actions").restore,
+                        },
+                    },
+                },
             }
         })
 
         telescope.load_extension('fzf')
         telescope.load_extension('neoclip')
-        vim.keymap.set("n", "<leader>o",  "<cmd>Telescope neoclip<CR>", { desc = "Telescope Neoclip" })
+        vim.keymap.set("n", "<leader>o", "<cmd>Telescope neoclip<CR>", { desc = "Telescope Neoclip" })
 
-        telescope.load_extension('undo')
-        vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Telescope Undo" })
+        -- Does not work like expected yet
+        -- telescope.load_extension('undo')
+        -- vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Telescope Undo" })
 
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "[F]ind all [F]iles" })
