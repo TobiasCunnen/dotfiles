@@ -29,9 +29,3 @@ vim.keymap.set("n", "<leader>pt", function()
     vim.cmd(":%! perltidy -fnl -b -bext='/'")
     vim.api.nvim_win_set_cursor(0, position)
 end)
-
--- Remap window switching
--- vim.keymap.set("n", "H", ":wincmd h<CR>")
--- vim.keymap.set("n", "K", ":wincmd k<CR>")
--- vim.keymap.set("n", "J", ":wincmd j<CR>")
--- vim.keymap.set("n", "L", ":wincmd l<CR>")

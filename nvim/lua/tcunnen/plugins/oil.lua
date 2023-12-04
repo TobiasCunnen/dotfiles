@@ -1,6 +1,9 @@
 return {
     'stevearc/oil.nvim',
     opts = {},
+    keys = {
+        { '<leader>ld', function() vim.cmd.Oil('--float') end, desc = '[L]ist [D]irecotry' },
+    },
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         require("oil").setup({
@@ -10,7 +13,5 @@ return {
                 ["<ESC>"] = "actions.close",
             }
         })
-
-        vim.keymap.set("n", "<leader>ld", function() vim.cmd.Oil('--float') end, { desc = "[L]ist [D]irectory" })
     end,
 }
