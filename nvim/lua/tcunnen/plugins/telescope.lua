@@ -14,6 +14,7 @@ return {
         'nvim-tree/nvim-web-devicons',
         'AckslD/nvim-neoclip.lua',
         'debugloop/telescope-undo.nvim',
+        'folke/todo-comments.nvim',
     },
     config = function()
         local telescope = require("telescope")
@@ -23,6 +24,9 @@ return {
                 selection_caret = " ",
             },
             extensions = {
+                neoclip = {
+                    default_register = "+",
+                },
                 undo = {
                     mappings = {
                         i = {
