@@ -10,7 +10,7 @@
 (defwidget volume-slider [value onchange icon]
   (box :orientation "v" :class "volume-slider-box" :space-evenly "false"
     (box :class "icon" icon)
-    (scale :class "battery"
+    (scale :class "slider"
       :value value
       :orientation "v"
       :height 320
@@ -24,4 +24,4 @@
 ;; volume-slider
 (defwindow volume-slider :stacking "overlay" :monitor 0 :focusable "false" :screen 1
   :geometry (geometry :x 35 :anchor "right center")
-  (volume-slider :value volume :onchange "amixer set Master {}%" :icon "󰕾"))
+  (volume-slider :value volume :onchange "" :icon "󰕾"))

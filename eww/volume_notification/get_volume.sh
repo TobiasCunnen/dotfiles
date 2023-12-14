@@ -1,13 +1,3 @@
 #!/usr/bin/env bash
-
-if [[ "$(amixer sget Master | awk -F'[][]' '/Right:|Mono:/ && NF > 1 {print $4}')" = "on" ]]; then
-
-	# search for the lines containing 'Right:' or 'Mono:', when more than 1 field exists
-	# we strip the trailing '%' and round it up with printf "%0.0f" just in case
-	vol=$(amixer sget Master | awk -F'[][]' '/Right:|Mono:/ && NF > 1 {sub(/%/, ""); printf "%0.0f\n", $2}')
-
-	echo ${vol}
-
-else
-	echo 0
-fi
+vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -Eo '[0-9]+.[0-9]+')
+echo "$vol * 100" | bc
