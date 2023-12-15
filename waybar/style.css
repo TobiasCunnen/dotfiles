@@ -46,6 +46,11 @@ window#waybar {
   transition: all 0.3s ease-in-out;
 }
 
+#workspaces button.urgent {
+  transition: all 0.3s ease-in-out;
+  color: #66c0f4 ;
+}
+
 #workspaces button:hover {
   color: #66c0f4;
 }
