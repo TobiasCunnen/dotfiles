@@ -1,6 +1,11 @@
 -- Wrapper for git worktree operations
 return {
     'ThePrimeagen/git-worktree.nvim',
+    dependency = {
+    },
+    dependencies = {
+        'nvim-lua/popup.nvim'
+    },
     config = function ()
         require('git-worktree').setup({
 
