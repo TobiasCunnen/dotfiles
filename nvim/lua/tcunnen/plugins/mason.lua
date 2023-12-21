@@ -36,7 +36,7 @@ return {
                     perlPath = 'perl',
                     enableWarnings = true,
                     perlcriticEnabled = false,
-                    includePaths = { '/home/tcunnen/Documents/userdb-cli/cli/src/lib' },
+                    includePaths = { vim.loop.cwd() .. '/cli/src/lib' },
                 }
             },
         }
