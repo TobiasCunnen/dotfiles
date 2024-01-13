@@ -3,7 +3,7 @@
 wpaperd &
 waybar &
 udiskie &
-dunst &
+# dunst &
 eww d &
 gammastep &
 # hyprctl setcursor Bibata-Modern-Classic 24 &

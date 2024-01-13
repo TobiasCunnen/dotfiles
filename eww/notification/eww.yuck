@@ -1,11 +1,10 @@
-(defvar noti "")
-(defwindow notification
-  :monitor 0
-  :geometry (geometry :y "40px" :x "0px" :width "150px" :height "40px" :anchor "center top")
-  :stacking "overlay"
+(deflisten notifs :initial ""
+  `python ~/dotfiles/eww/notification/main.py`)
 
-  (box :class "notification-window"
-    (label :limit-width 30
-           :wrap true
-           :show-truncated true
-           :text noti)))
+(defwindow notifications
+           :monitor 0
+           :geometry (geometry :x "20px"
+                               :y "20px"
+                               :anchor "top right")
+           :stacking "overlay"
+           (literal :content notifs))

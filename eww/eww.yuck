@@ -1,4 +1,4 @@
 (include "./volume_notification/eww.yuck")
 (include "./powermenu/eww.yuck")
+(include "./notification/eww.yuck")
 ; (include "./bar/eww.yuck")
-; (include "./notification/eww.yuck")
