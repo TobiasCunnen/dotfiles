@@ -59,6 +59,8 @@ VI_MODE_SET_CURSOR=true
 alias e='nvim'
 alias nix-install='nix-env -iA nixpkgs.tcunnenPackages'
 alias dc='docker-compose'
+alias t='zellij'
+alias show="kitten icat"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
