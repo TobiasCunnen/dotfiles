@@ -4,7 +4,7 @@ keybinds clear-defaults=true {
         bind "Ctrl g" { SwitchToMode "Normal"; }
     }
     resize {
-        bind "Ctrl r" { SwitchToMode "Normal"; }
+        bind "Ctrl n" { SwitchToMode "Normal"; }
         bind "h" "Left" { Resize "Increase Left"; }
         bind "j" "Down" { Resize "Increase Down"; }
         bind "k" "Up" { Resize "Increase Up"; }
@@ -43,8 +43,8 @@ keybinds clear-defaults=true {
     tab {
         bind "Ctrl t" { SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
-        bind "h" "Left" "Up" "k" { GoToPreviousTab; }
-        bind "l" "Right" "Down" "j" { GoToNextTab; }
+        bind "h" "Left" "Up" "k" { GoToPreviousTab;  SwitchToMode "Normal";}
+        bind "l" "Right" "Down" "j" { GoToNextTab;  SwitchToMode "Normal";}
         bind "n" { NewTab; SwitchToMode "Normal"; }
         bind "x" { CloseTab; SwitchToMode "Normal"; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
@@ -124,7 +124,7 @@ keybinds clear-defaults=true {
         bind "Ctrl h" { SwitchToMode "Move"; }
     }
     shared_except "resize" "locked" {
-        bind "Ctrl r" { SwitchToMode "Resize"; }
+        bind "Ctrl n" { SwitchToMode "Resize"; }
     }
     shared_except "scroll" "locked" {
         bind "Ctrl s" { SwitchToMode "Scroll"; }
@@ -146,9 +146,28 @@ plugins {
     session-manager { path "session-manager"; }
 }
 
-//pane_frames false
+themes {
+    // Changed green to blue for border color
+    custom-tokyo-night {
+        fg "#c0caf5"
+        bg "#292e42"
+        black "#1f2335"
+        red "#f7768e"
+        green "#7aa2f7"
+        yellow "#e0af68"
+        blue "#7aa2f7"
+        magenta "#bb9af7"
+        cyan "#7dcfff"
+        white "#ffffff"
+        orange "#ff9e64"
+    }
+}
 
-theme "tokyo-night"
+theme "custom-tokyo-night"
+
+session_serialization true
+pane_viewport_serialization true
+scrollback_lines_to_serialize 0
 
 ui {
     pane_frames {

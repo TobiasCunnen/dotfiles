@@ -10,6 +10,8 @@ layout {
             border_format   "#[fg=#6C7086]{char}"
             border_position "bottom"
 
+            hide_frame_for_single_pane "true"
+
             mode_normal        "#[fg=#2AC3DE,bold] {name}"
             mode_locked        "#[fg=#6C7086,bold] {name}"
             mode_resize        "#[fg=#9D7CD8,bold] {name}"
