@@ -39,6 +39,14 @@ return {
                     includePaths = { vim.loop.cwd() .. '/cli/src/lib' },
                 }
             },
+            gopls = {
+                gopls = {
+                    usePlaceholders = true,
+                    analyses = {
+                        unusedparams = true,
+                    },
+                }
+            },
         }
 
         -- Setup neovim lua configuration
