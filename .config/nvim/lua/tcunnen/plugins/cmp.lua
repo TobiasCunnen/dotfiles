@@ -11,12 +11,12 @@ return {
         'hrsh7th/cmp-path',
         -- Adds a number of user-friendly snippets
         'rafamadriz/friendly-snippets',
+        'onsails/lspkind.nvim',
     },
     config = function()
-        -- [[ Configure nvim-cmp ]]
-        -- See `:help cmp`
-        local cmp = require 'cmp'
-        local luasnip = require 'luasnip'
+        local cmp = require('cmp')
+        local luasnip = require('luasnip')
+        local lspkind = require('lspkind')
         require('luasnip.loaders.from_vscode').lazy_load()
         luasnip.config.setup {}
 
@@ -25,6 +25,14 @@ return {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
                 end,
+            },
+            -- Add borders around the popup window
+            window = {
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
+            },
+            formatting = {
+                format = lspkind.cmp_format(),
             },
             mapping = cmp.mapping.preset.insert {
                 ['<C-n>'] = cmp.mapping.select_next_item(),

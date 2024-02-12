@@ -42,9 +42,18 @@ return {
 
         vim.diagnostic.config({
             virtual_text = {
-                prefix = '',
+                prefix = ' ●',
             },
+            float = { border = "rounded" },
         })
+
+        -- To instead override globally
+        local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+        function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+            opts = opts or {}
+            opts.border = "rounded"
+            return orig_util_open_floating_preview(contents, syntax, opts, ...)
+        end
 
         local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
         for type, icon in pairs(signs) do
