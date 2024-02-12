@@ -5,3 +5,4 @@ gui:
   showFileIcons: true
   border: 'rounded'
   animateExplosion: false
+quitOnTopLevelReturn: true # esc quits lazygit
