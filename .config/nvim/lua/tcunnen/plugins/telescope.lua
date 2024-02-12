@@ -43,5 +43,6 @@ return {
         vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = "[S]earch with [G]rep" })
         vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = "[S]earch [D]iagnostic" })
         vim.keymap.set('n', '<leader>km', builtin.keymaps, { desc = "[K]ey[M]aps" })
+        vim.keymap.set('n', '<leader>sc', builtin.spell_suggest, { desc = "[S]pell [C]hecking suggestions" })
     end,
 }

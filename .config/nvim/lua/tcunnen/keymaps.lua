@@ -13,7 +13,7 @@ vim.keymap.set('n', '<ESC>', ':noh<CR>')
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- Keep cursor centerd when navigating
+-- Keep cursor centered when navigating
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
@@ -22,11 +22,11 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Paste without yank
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- Better mergetool mappings
+-- Better merge tool mappings
 vim.keymap.set("n", "<leader>gh", "<cmd>diffget //2<CR>")
 vim.keymap.set("n", "<leader>gl", "<cmd>diffget //3<CR>")
 
--- Run perl tidy
+-- Run Perl tidy
 vim.keymap.set("n", "<leader>pt", function()
     local position = vim.api.nvim_win_get_cursor(0)
     vim.cmd(":%! perltidy -fnl -b -bext='/'")

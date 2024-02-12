@@ -31,8 +31,8 @@ vim.opt.scrolloff = 8
 vim.o.breakindent = true
 
 -- Decrease update time
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.o.updatetime = 300
+vim.o.timeoutlen = 350
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -43,8 +43,11 @@ vim.o.showmode = false
 -- Shows trailing white spaces and more
 vim.opt.list = true
 
--- Keep signcolumn on by default
+-- Keep sign column on by default
 vim.wo.signcolumn = 'yes'
 
 -- Set global clipboard
 vim.opt.clipboard = "unnamedplus"
+
+-- Enable spell check
+vim.opt.spell = true
