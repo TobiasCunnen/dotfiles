@@ -1,0 +1,7 @@
+gui:
+  showBottomLine: false
+  showPanelJumps: true # for showing the jump-to-panel keybindings as panel subtitles
+  nerdFontsVersion: '3'
+  showFileIcons: true
+  border: 'rounded'
+  animateExplosion: false
