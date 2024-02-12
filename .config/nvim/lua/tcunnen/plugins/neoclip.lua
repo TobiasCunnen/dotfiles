@@ -1,5 +1,6 @@
 return {
     'AckslD/nvim-neoclip.lua',
+    event = "VeryLazy",
     opts = {},
     config = function()
         require('neoclip').setup({

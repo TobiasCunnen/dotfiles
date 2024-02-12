@@ -1,6 +1,6 @@
 -- Comment and uncomment lines
 return {
     'numToStr/Comment.nvim',
-    -- Enable commets
+    event = "VeryLazy",
     opts = {},
 }

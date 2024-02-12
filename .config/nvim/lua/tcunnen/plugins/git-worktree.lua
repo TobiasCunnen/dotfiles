@@ -1,15 +1,14 @@
 -- Wrapper for git worktree operations
 return {
     'ThePrimeagen/git-worktree.nvim',
+    event = "VeryLazy",
     dependency = {
     },
     dependencies = {
         'nvim-lua/popup.nvim'
     },
     config = function ()
-        require('git-worktree').setup({
-
-        })
+        require('git-worktree').setup({})
 
         require("telescope").load_extension("git_worktree")
 
