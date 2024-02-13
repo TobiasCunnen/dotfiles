@@ -2,11 +2,12 @@
 return {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
+        'nvim-treesitter/nvim-treesitter-refactor',
         'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
     config = function()
-        require 'nvim-treesitter.configs'.setup {
+        require('nvim-treesitter.configs').setup {
             modules = {},
 
             -- List of parsers to ignore installing (or "all")
@@ -39,7 +40,6 @@ return {
             },
 
             textobjects = {
-
                 select = {
                     enable = true,
                     lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
@@ -74,17 +74,32 @@ return {
                         ['[]'] = '@class.outer',
                     },
                 },
+                swap = {
+                    enable = true,
+                    swap_next = {
+                        ['<leader>a'] = '@parameter.inner',
+                    },
+                    swap_previous = {
+                        ['<leader>A'] = '@parameter.inner',
+                    },
+                },
+            },
+        }
 
-                -- Don't know what it does and it conflicts with harpoon keybindings
-                -- swap = {
-                --     enable = true,
-                --     swap_next = {
-                --         ['<leader>a'] = '@parameter.inner',
-                --     },
-                --     swap_previous = {
-                --         ['<leader>A'] = '@parameter.inner',
-                --     },
-                -- },
+        require('nvim-treesitter.configs').setup {
+            refactor = {
+                highlight_definitions = {
+                    enable = true,
+                    -- Set to false if you have an `updatetime` of ~100.
+                    clear_on_cursor_move = true,
+                },
+                highlight_current_scope = true,
+                smart_rename = {
+                    enable = true,
+                    keymaps = {
+                        smart_rename = '<leader>tr'
+                    }
+                },
             },
         }
     end,
