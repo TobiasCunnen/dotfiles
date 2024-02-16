@@ -3,7 +3,6 @@ return {
     'lewis6991/gitsigns.nvim',
     event = "VeryLazy",
     opts = {
-        -- See `:help gitsigns.txt`
         signs = {
             add = { text = '+' },
             change = { text = '~' },
@@ -12,8 +11,10 @@ return {
             changedelete = { text = '_' },
         },
         on_attach = function(bufnr)
-            vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk,
-                { buffer = bufnr, desc = 'Preview git hunk' })
+            vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk,
+                { buffer = bufnr, desc = '[P]review git [H]unk' })
+            vim.keymap.set('n', '<leader>rh', require('gitsigns').reset_hunk,
+                { buffer = bufnr, desc = '[R]eset git [H]unk' })
 
             -- don't override the built-in and fugitive keymaps
             local gs = package.loaded.gitsigns
@@ -36,5 +37,8 @@ return {
                 return '<Ignore>'
             end, { expr = true, buffer = bufnr, desc = 'Jump to previous hunk' })
         end,
+        preview_config = {
+            border = 'rounded',
+        },
     },
 }
