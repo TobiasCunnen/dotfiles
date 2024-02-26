@@ -29,6 +29,6 @@ vim.keymap.set("n", "<leader>gl", "<cmd>diffget //3<CR>")
 -- Run Perl tidy
 vim.keymap.set("n", "<leader>pt", function()
     local position = vim.api.nvim_win_get_cursor(0)
-    vim.cmd(":%! perltidy -fnl -b -bext='/'")
+    vim.cmd(":%! perltidy -b -i=2 -l=0 --freeze-newlines")
     vim.api.nvim_win_set_cursor(0, position)
 end)
