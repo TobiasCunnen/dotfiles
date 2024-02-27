@@ -1,3 +1,5 @@
 *-lock.json
 tmux/plugins
 state.yml
+*.add
+*.spl
