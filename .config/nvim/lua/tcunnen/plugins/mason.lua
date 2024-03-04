@@ -35,8 +35,9 @@ return {
                 perlnavigator = {
                     perlPath = 'perl',
                     enableWarnings = true,
-                    perlcriticEnabled = false,
+                    perlcriticEnabled = true,
                     includePaths = { vim.loop.cwd() .. '/cli/src/lib' },
+                    perltidyProfile = '/home/tcunnen/.perltidyrc',
                 }
             },
             gopls = {
