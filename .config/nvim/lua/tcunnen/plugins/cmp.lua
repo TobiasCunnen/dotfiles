@@ -12,6 +12,12 @@ return {
         -- Adds a number of user-friendly snippets
         'rafamadriz/friendly-snippets',
         'onsails/lspkind.nvim',
+        {
+            "Exafunction/codeium.nvim",
+            cmd = "Codeium",
+            build = ":Codeium Auth",
+            opts = {},
+        },
     },
     config = function()
         local cmp = require('cmp')
@@ -32,7 +38,12 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
             formatting = {
-                format = lspkind.cmp_format(),
+                format = lspkind.cmp_format({
+                    mode = "symbol",
+                    maxwidth = 50,
+                    ellipsis_char = '...',
+                    symbol_map = { Codeium = "", }
+                }),
             },
             mapping = cmp.mapping.preset.insert {
                 ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -67,6 +78,7 @@ return {
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
                 { name = 'path' },
+                { name = "codeium" },
             },
         }
     end,
