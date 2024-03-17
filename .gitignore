@@ -1,5 +1,5 @@
 *-lock.json
-tmux/plugins
 state.yml
 *.add
 *.spl
+.config/tmux/plugins
