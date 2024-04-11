@@ -132,7 +132,7 @@ keybinds clear-defaults=true {
         bind "Ctrl t" { SwitchToMode "Tab"; }
     }
     shared_among "normal" {
-        bind "Alt m" {
+        bind "Alt s" {
             LaunchOrFocusPlugin "zellij:session-manager" {
                 floating true
             }
