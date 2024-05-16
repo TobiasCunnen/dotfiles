@@ -15,6 +15,7 @@ setopt HIST_FIND_NO_DUPS       # Do not display previously found event
 setopt HIST_IGNORE_ALL_DUPS    # Delete old event if new is dup
 setopt HIST_IGNORE_DUPS        # Do not record consecutive dup events
 setopt HIST_SAVE_NO_DUPS       # Do not write dup event to hist file
+setopt SHAREHISTORY            # Share hist between sessions
 
 if [[ ! -e ~/.zsh/zsh-syntax-highlighting ]]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
@@ -55,6 +56,9 @@ bindkey -M vicmd 'j' history-substring-search-down
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
 
+# Add items to path
+export PATH=$PATH:$HOME/go/bin
+
 # Aliases
 alias e='nvim'
 alias nix-install='nix-env -iA nixpkgs.tcunnenPackages'
@@ -77,20 +81,3 @@ fi
 # some more ls aliases
 alias ll='ls -alhF'
 alias la='ls -A'
-alias l='ls -CF'
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/etc/profile.d/conda.sh" ]; then
-        . "/usr/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
