@@ -37,6 +37,10 @@ if [[ ! -e ~/.zsh/z ]]; then
   git clone https://github.com/skywind3000/z.lua.git ~/.zsh/z
 fi
 
+if [[ ! -e ~/.zsh/zsh-completions ]]; then
+  git clone https://github.com/zsh-users/zsh-completions ~/.zsh/zsh-completions
+fi
+
 autoload -Uz compinit
 compinit
 
@@ -46,6 +50,7 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-vi-mode/zsh-vi-mode.zsh
 source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.zsh/zsh-completions/zsh-completions.plugin.zsh
 eval "$(lua ~/.zsh/z/z.lua --init zsh enhanced once fzf)"
 
 # Add vim keybindings to substring search
@@ -58,6 +63,11 @@ VI_MODE_SET_CURSOR=true
 
 # Add items to path
 export PATH=$PATH:$HOME/go/bin
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
 
 # Aliases
 alias e='nvim'
