@@ -5,6 +5,6 @@ return {
     opts = {},
     config = function()
         require('todo-comments').setup();
-        vim.keymap.set('n', '<leader>td', '<cmd>TodoTelescope keywords=TODO,HACK,FIX,BUG,WARN,PERF,NOTE,TEST initial_mode=normal<CR>', { desc = "[F]ind all [F]iles" })
+        vim.keymap.set('n', '<leader>td', '<cmd>TodoTelescope keywords=TODO,HACK,FIX,BUG,PERF,TEST initial_mode=normal<CR>', { desc = "[F]ind all [F]iles" })
     end
 }
