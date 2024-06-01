@@ -2,4 +2,4 @@
 state.yml
 *.add
 *.spl
-.config/tmux/plugins
+config/tmux/plugins
