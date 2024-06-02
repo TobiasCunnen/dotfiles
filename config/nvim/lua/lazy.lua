@@ -1,8 +1,3 @@
-require("keymaps")
-require("settings")
-require("filetypes")
-
--- Lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 print(lazypath)
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
