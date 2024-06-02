@@ -76,6 +76,7 @@ alias dc='docker compose'
 alias pc='podman-compose'
 alias t='zellij'
 alias show="kitten icat"
+alias stow-config="stow config --target=/home/tcunnen/.config"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
