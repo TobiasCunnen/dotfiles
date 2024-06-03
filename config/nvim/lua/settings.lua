@@ -42,6 +42,9 @@ vim.o.showmode = false
 
 -- Shows trailing white spaces and more
 vim.opt.list = true
+vim.opt.listchars:append {
+	tab = "│ ",
+}
 
 -- Keep sign column on by default
 vim.wo.signcolumn = 'yes'
