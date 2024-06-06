@@ -1,2 +1,4 @@
 state.yml
 config/tmux/plugins
+tsconfig.json
+types

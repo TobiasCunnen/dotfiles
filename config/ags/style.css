@@ -1,0 +1,28 @@
+@define-color bg #171a21;
+@define-color bg-alt #1b2838;
+@define-color fg #2a475e;
+@define-color highlight #66c0f4;
+
+.power-menu-window {
+  background-color: @bg;
+  border-radius: 16px;
+  padding: 5px;
+}
+
+.power-menu-item {
+  background-color: @fg;
+  font-size: 500%;
+  color: @bg;
+  border-radius: 16px;
+  margin: 3px;
+  padding: 15px;
+  border: none;
+}
+
+.power-menu-item:hover {
+  background-color: @highlight;
+}
+
+.power-menu-item:focus {
+    outline: none;
+}
