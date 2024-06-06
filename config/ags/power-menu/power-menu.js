@@ -1,18 +1,27 @@
 App.addIcons(`${App.configDir}/icons`)
+const WINDOW_NAME = 'power-menu'
 
 export function PowerMenuWindow(monitor = 0) {
-    const windowName = `power-menu-${monitor}`
     return Widget.Window({
         monitor: monitor,
-        name: windowName,
+        layer: 'overlay',
+        name: WINDOW_NAME,
         anchor: ['right'],
-        margins: [0,15],
+        margins: [0, 25],
         css: 'background: transparent;',
         keymode: 'exclusive',
         setup: self => self.keybind('Escape', () => {
-            App.closeWindow(windowName)
+            App.closeWindow(WINDOW_NAME)
         }).keybind('q', () => {
-            App.closeWindow(windowName)
+            App.closeWindow(WINDOW_NAME)
+        }).keybind('s', () => {
+            Sleep()
+        }).keybind('l', () => {
+            Logout()
+        }).keybind('r', () => {
+            Reboot()
+        }).keybind('p', () => {
+            Shutdown()
         }),
         child: Widget.Box({
             vertical: true,
@@ -27,29 +36,30 @@ export function PowerMenuWindow(monitor = 0) {
     })
 }
 
-function PowerMenuItem(iconPath, onClick, key) {
+function PowerMenuItem(icon, onClick, key) {
     return Widget.Button({
-        child: Widget.Icon(iconPath),
+        child: Widget.Icon(icon),
         tooltipText: `Shortcut: ${key}`,
         cursor: 'pointer',
         className: 'power-menu-item',
         onClicked: () => onClick(),
-        setup: self => self.keybind(key, () => onClick()),
     })
 }
 
 function Sleep() {
-
+    App.closeWindow(WINDOW_NAME)
+    Utils.exec('systemctl suspend')
 }
 
 function Logout() {
-
+    App.closeWindow('power-menu-0')
+    Utils.exec('hyprctl dispatch exit')
 }
 
 function Reboot() {
-
+    Utils.exec('reboot')
 }
 
 function Shutdown() {
-    print('hoooi')
+    Utils.exec('shutdown now')
 }
