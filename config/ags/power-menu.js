@@ -5,6 +5,7 @@ export function PowerMenuWindow(monitor = 0) {
     return Widget.Window({
         monitor: monitor,
         layer: 'overlay',
+        visible: false,
         name: WINDOW_NAME,
         anchor: ['right'],
         margins: [0, 25],

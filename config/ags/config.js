@@ -1,5 +1,6 @@
 import { NotificationPopups } from "./notifications/notifications.js"
-import { PowerMenuWindow } from "./power-menu/power-menu.js"
+import { PowerMenuWindow } from "./power-menu.js"
+import { VolumeIndicator } from "./volume-indicator.js"
 
 App.config({
     style: App.configDir + "/style.css",
@@ -7,5 +8,6 @@ App.config({
     windows: [
         NotificationPopups(),
         PowerMenuWindow(),
+        VolumeIndicator(),
     ],
 })
