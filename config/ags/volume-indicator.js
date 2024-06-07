@@ -1,7 +1,10 @@
 App.addIcons(`${App.configDir}/icons`)
 
 const audio = await Service.import('audio')
+export const showVolume = Variable(false)
+globalThis.showVolume = showVolume;
 
+//TODO: make the setup function more generic
 function SliderIndicator(windowName = 'slider-inidicator', monitor = 0, icon, value) {
     return Widget.Window({
         monitor: monitor,
@@ -11,6 +14,14 @@ function SliderIndicator(windowName = 'slider-inidicator', monitor = 0, icon, va
         anchor: ['right'],
         margins: [0, 25],
         css: 'background: transparent;',
+        setup: self => self.hook(showVolume, () => {
+            if (self.visible) {
+                self.visible = false;
+            } else if (showVolume.value) {
+                self.visible = true;
+                setTimeout(() => { showVolume.value = !showVolume.value }, 3000)
+            }
+        }),
         child: Widget.Box({
             vertical: true,
             className: 'slider-inidicator-window',
