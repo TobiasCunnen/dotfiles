@@ -18,7 +18,7 @@ function SliderIndicator(windowName = 'slider-inidicator', monitor = 0, icon, bi
             cursor: 'pointer',
             child: Widget.Revealer({
                 transition: 'slide_right',
-                transitionDuration: 500,
+                transitionDuration: 300,
                 revealChild: true,
                 setup: self => self.hook(signalVar, () => {
                     if (signalVar.value){

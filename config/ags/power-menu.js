@@ -1,6 +1,9 @@
 App.addIcons(`${App.configDir}/icons`)
 const WINDOW_NAME = 'power-menu'
 
+export const showPowerMenu = Variable(false)
+globalThis.showPowerMenu = showPowerMenu;
+
 export function PowerMenuWindow(monitor = 0) {
     return Widget.Window({
         monitor: monitor,
@@ -13,8 +16,10 @@ export function PowerMenuWindow(monitor = 0) {
         keymode: 'exclusive',
         setup: self => self.keybind('Escape', () => {
             App.closeWindow(WINDOW_NAME)
+            showPowerMenu.value = false;
         }).keybind('q', () => {
-            App.closeWindow(WINDOW_NAME)
+            App.closeWindow(WINDOW_NAME);
+            showPowerMenu.value = false;
         }).keybind('s', () => {
             Sleep()
         }).keybind('l', () => {
@@ -25,14 +30,31 @@ export function PowerMenuWindow(monitor = 0) {
             Shutdown()
         }),
         child: Widget.Box({
-            vertical: true,
-            className: 'power-menu-window',
-            children: [
-                PowerMenuItem('slumber-symbolic', Sleep, 's'),
-                PowerMenuItem('logout-symbolic', Logout, 'l'),
-                PowerMenuItem('reboot-symbolic', Reboot, 'r'),
-                PowerMenuItem('power-off-symbolic', Shutdown, 'p'),
-            ]
+            css: 'padding:1px; background-color:transparent;',
+            child: Widget.Revealer({
+                transition: 'slide_right',
+                transitionDuration: 300,
+                revealChild: false,
+                setup: self => self.hook(showPowerMenu, () => {
+                    if (showPowerMenu.value) {
+                        App.openWindow(WINDOW_NAME);
+                        self.reveal_child = true;
+                        return;
+                    }
+                    App.closeWindow(WINDOW_NAME);
+                    self.reveal_child = false;
+                }),
+                child: Widget.Box({
+                    vertical: true,
+                    className: 'power-menu-window',
+                    children: [
+                        PowerMenuItem('slumber-symbolic', Sleep, 's'),
+                        PowerMenuItem('logout-symbolic', Logout, 'l'),
+                        PowerMenuItem('reboot-symbolic', Reboot, 'r'),
+                        PowerMenuItem('power-off-symbolic', Shutdown, 'p'),
+                    ]
+                })
+            })
         })
     })
 }
