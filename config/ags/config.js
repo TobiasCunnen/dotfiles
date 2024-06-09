@@ -5,9 +5,9 @@ import { VolumeIndicator } from "./volume-indicator.js"
 App.config({
     style: App.configDir + "/style.css",
     icons: "./icons/",
-    // closeWindowDelay: {
-    //     'volume-indicator': 2000,
-    // },
+    closeWindowDelay: {
+        'volume-indicator': 600,
+    },
     windows: [
         NotificationPopups(),
         PowerMenuWindow(),
