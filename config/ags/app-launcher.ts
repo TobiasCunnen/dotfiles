@@ -1,5 +1,9 @@
 import { PopUpWindow } from 'PopUpWindow'
+import { type Entry } from 'types/widgets/entry'
 import { type Application } from 'types/service/applications'
+import { type Button } from 'types/widgets/button'
+import { type Revealer } from 'types/widgets/revealer'
+import { type Box } from 'types/widgets/box'
 App.addIcons(`${App.configDir}/icons`)
 const { query } = await Service.import('applications')
 
@@ -8,7 +12,7 @@ globalThis.showAppLauncher = showAppLauncher;
 const WINDOW_NAME = 'app-launcher'
 let showList = Variable(true)
 
-function SearchField(applications) {
+function SearchField(applications: Button<any, any>[]): Entry<unknown> {
     return Widget.Entry({
         className: 'app-launcher-search',
         hexpand: true,
@@ -36,7 +40,7 @@ function SearchField(applications) {
     });
 }
 
-function AppItem(app: Application) {
+function AppItem(app: Application): Button<any, any> {
     let icon = app.icon_name
     if (icon == null) {
         icon = 'cube-symbolic'
@@ -68,7 +72,7 @@ function AppItem(app: Application) {
     })
 }
 
-function AppList(applications) {
+function AppList(applications: Button<any, any>[]): Revealer<any, any> {
     return Widget.Revealer({
         revealChild: true,
         transition: 'slide_up',
@@ -91,7 +95,7 @@ function AppList(applications) {
     })
 }
 
-function AppLauncher() {
+function AppLauncher(): Box<any, any> {
     let applications = query("").map(AppItem)
     let search = SearchField(applications)
     let apps = AppList(applications)
