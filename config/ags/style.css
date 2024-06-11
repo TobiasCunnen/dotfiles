@@ -53,6 +53,27 @@ levelbar .filled {
     background-color: @highlight;
 }
 
+.app-launcher {
+    padding: 10px;
+    border-radius: 16px;
+    background-color: @bg;
+    transition: margin 350ms ease;
+}
+
+.app-launcher-search {
+    min-width: 500px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+}
+
+.app-launcher-item {
+    background-color: @bg;
+}
+
+.app-launcher-item:hover,.app-launcher-item:focus {
+    background-color: @highlight;
+}
+
 /* Notification part */
 window.notification-popups box.notifications {
     padding: .5em;

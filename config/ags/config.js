@@ -1,19 +1,16 @@
-import { NotificationPopups } from "./notifications/notifications.js"
-import { PowerMenuWindow } from "./power-menu.js"
-import { VolumeIndicator } from "./volume-indicator.js"
+const main = '/tmp/ags/main.js';
+export {}
 
-const WINDOW_CLOSE_DELAY = 350
-
-App.config({
-    style: App.configDir + "/style.css",
-    icons: "./icons/",
-    closeWindowDelay: {
-        'volume-indicator': WINDOW_CLOSE_DELAY,
-        'power-menu': WINDOW_CLOSE_DELAY,
-    },
-    windows: [
-        NotificationPopups(),
-        PowerMenuWindow(),
-        VolumeIndicator(),
-    ],
-})
+try {
+    await Utils.execAsync([
+        'bun', 'build', `${App.configDir}/main.ts`,
+        '--outfile', main,
+        '--external', 'resource://*',
+        '--external', 'gi://*',
+        '--external', 'file://*',
+    ]);
+    await import(`file://${main}`);
+} catch (error) {
+    console.error(error);
+    App.quit();
+}
