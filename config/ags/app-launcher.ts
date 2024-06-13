@@ -1,4 +1,4 @@
-import { PopUpWindow } from 'PopUpWindow'
+import { PopUpWindow } from 'pop-up-window'
 import { type Entry } from 'types/widgets/entry'
 import { type Application } from 'types/service/applications'
 import { type Button } from 'types/widgets/button'
