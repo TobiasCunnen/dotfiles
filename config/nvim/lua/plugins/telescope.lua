@@ -18,7 +18,7 @@ return {
         local telescope = require("telescope")
         telescope.setup({
             defaults = {
-                prompt_prefix = " ㅤ",
+                prompt_prefix = "  ",
                 selection_caret = " ",
             },
             extensions = {
@@ -46,5 +46,6 @@ return {
         vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = "[S]earch [D]iagnostic" })
         vim.keymap.set('n', '<leader>km', builtin.keymaps, { desc = "[K]ey[M]aps" })
         vim.keymap.set('n', '<leader>sc', builtin.spell_suggest, { desc = "[S]pell [C]hecking suggestions" })
+        vim.keymap.set('n', '<leader>ql', builtin.quickfix, { desc = "[Q]quick fix [L]ist" })
     end,
 }

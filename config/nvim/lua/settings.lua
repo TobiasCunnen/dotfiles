@@ -7,16 +7,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
-
--- Disable search highlight, unless active search
--- vim.opt.hlsearch = false
--- vim.cmd([[
---         augroup vimrc-incsearch-highlight
---         autocmd!
---         autocmd CmdlineEnter /,\? :set hlsearch
---         autocmd CmdlineLeave /,\? :set nohlsearch
---         augroup END
---         ]])
 vim.opt.incsearch = true
 
 -- Case-insensitive searching UNLESS \C or capital in search

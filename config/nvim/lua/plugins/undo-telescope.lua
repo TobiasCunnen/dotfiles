@@ -12,6 +12,7 @@ return {
     opts = {
         extensions = {
             undo = {
+                use_delta = true,
                 mappings = {
                     n = {
                         ['ya'] = function(bufnr)

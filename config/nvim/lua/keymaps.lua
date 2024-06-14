@@ -1,8 +1,5 @@
 vim.g.mapleader = " "
 
--- Set :W to save because I do this a lot
-vim.keymap.set('c', 'W', 'w')
-
 -- Remap undo to U
 vim.keymap.set('n', 'U', '<c-r>')
 
