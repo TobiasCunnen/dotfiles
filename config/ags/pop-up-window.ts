@@ -1,5 +1,6 @@
 import { WindowProps } from "types/widgets/window";
 import { RevealerProps } from "types/widgets/revealer";
+import { Variable } from "types/variable";
 
 interface PopUpWindowsProps {
     monitor?: number;
@@ -7,12 +8,12 @@ interface PopUpWindowsProps {
     anchor?: WindowProps['anchor'];
     exclusivity?: WindowProps['exclusivity'];
     layer?: WindowProps['layer'];
-    margin?: WindowProps['margin'];
+    margins?: WindowProps['margins'];
     keymode?: WindowProps['keymode'];
     transition?: RevealerProps['transition'];
     transitionDuration?: number;
     child: WindowProps['child'];
-    revealVar;
+    revealVar: Variable<any>;
 }
 
 export function PopUpWindow(
@@ -22,7 +23,7 @@ export function PopUpWindow(
         anchor = [],
         exclusivity = 'normal',
         layer = 'top',
-        margin = 0,
+        margins = [0,0],
         keymode = 'none',
         transition = 'crossfade',
         transitionDuration = 300,
@@ -36,7 +37,7 @@ export function PopUpWindow(
         anchor: anchor,
         exclusivity: exclusivity,
         layer: layer,
-        margin: margin,
+        margins: margins,
         keymode: keymode,
         css: 'background-color: transparent;',
         child: Widget.Box({
@@ -48,7 +49,11 @@ export function PopUpWindow(
                         self.reveal_child = true;
                         return;
                     }
-                    App.closeWindow(windowName);
+                    print('here?')
+                    print(windowName)
+                    if (App.getWindow(windowName)?.visible){
+                        App.closeWindow(windowName);
+                    }
                     self.reveal_child = false;
                 }),
                 revealChild: false,

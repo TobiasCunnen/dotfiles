@@ -1,5 +1,5 @@
 import { NotificationPopups } from "./notifications/notifications.js"
-import { PowerMenuWindow } from "./power-menu.js"
+import { PowerMenuWindow } from "./power-menu"
 import { VolumeIndicator } from "./volume-indicator.js"
 import { AppLauncherWindow } from 'app-launcher'
 
@@ -15,8 +15,8 @@ App.config({
     },
     windows: [
         NotificationPopups(),
-        PowerMenuWindow(),
         VolumeIndicator(),
         AppLauncherWindow,
+        PowerMenuWindow,
     ],
 })
