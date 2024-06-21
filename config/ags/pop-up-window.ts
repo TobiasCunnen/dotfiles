@@ -49,8 +49,6 @@ export function PopUpWindow(
                         self.reveal_child = true;
                         return;
                     }
-                    print('here?')
-                    print(windowName)
                     if (App.getWindow(windowName)?.visible){
                         App.closeWindow(windowName);
                     }
