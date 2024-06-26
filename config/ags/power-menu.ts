@@ -29,10 +29,10 @@ export const PowerMenuWindow = PopUpWindow({
     revealVar: showPowerMenu,
     child: PowerMenu(),
 }).keybind('Escape', () => {
-    // App.closeWindow(WINDOW_NAME);
+    App.closeWindow(WINDOW_NAME);
     showPowerMenu.value = false;
 }).keybind('q', () => {
-    // App.closeWindow(WINDOW_NAME);
+    App.closeWindow(WINDOW_NAME);
     showPowerMenu.value = false;
 }).keybind('s', () => {
     Sleep()
@@ -57,23 +57,23 @@ function PowerMenuItem(icon: string, onClick: () => void, key: string): Button<a
 function Sleep() {
     App.closeWindow(WINDOW_NAME);
     showPowerMenu.value = false;
-    Utils.execAsync('systemctl suspend')
+    setTimeout(() => Utils.execAsync('systemctl suspend'), globalThis.windowCloseDelay)
 }
 
 function Logout() {
     App.closeWindow(WINDOW_NAME);
     showPowerMenu.value = false;
-    Utils.execAsync('hyprctl dispatch exit')
+    setTimeout(() => Utils.execAsync('hyprctl dispatch exit'), globalThis.windowCloseDelay)
 }
 
 function Reboot() {
     App.closeWindow(WINDOW_NAME);
     showPowerMenu.value = false;
-    Utils.execAsync('reboot')
+    setTimeout(() => Utils.execAsync('reboot'), globalThis.windowCloseDelay)
 }
 
 function Shutdown() {
     App.closeWindow(WINDOW_NAME);
     showPowerMenu.value = false;
-    Utils.execAsync('shutdown now')
+    setTimeout(() => Utils.execAsync('shutdown now'), globalThis.windowCloseDelay)
 }

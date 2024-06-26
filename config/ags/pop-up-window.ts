@@ -23,7 +23,7 @@ export function PopUpWindow(
         anchor = [],
         exclusivity = 'normal',
         layer = 'top',
-        margins = [0,0],
+        margins = [0, 0],
         keymode = 'none',
         transition = 'crossfade',
         transitionDuration = 300,
@@ -39,6 +39,7 @@ export function PopUpWindow(
         layer: layer,
         margins: margins,
         keymode: keymode,
+        visible: false,
         css: 'background-color: transparent;',
         child: Widget.Box({
             css: 'padding: 1px; background-color: transparent;',
@@ -49,9 +50,7 @@ export function PopUpWindow(
                         self.reveal_child = true;
                         return;
                     }
-                    if (App.getWindow(windowName)?.visible){
-                        App.closeWindow(windowName);
-                    }
+
                     self.reveal_child = false;
                 }),
                 revealChild: false,
