@@ -62,17 +62,17 @@ return {
         }
 
         --TODO: Set custom snippets
-        for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lua", true)) do
+        for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/snippets/*.lua", true)) do
             loadfile(ft_path)()
         end
 
-        vim.keymap.set({ "i", "s" }, "<c-l>", function()
+        vim.keymap.set({ "n", "i", "s" }, "<c-l>", function()
             if luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
             end
         end, { silent = true })
 
-        vim.keymap.set({ "i", "s" }, "<c-h>", function()
+        vim.keymap.set({ "n", "i", "s" }, "<c-h>", function()
             if luasnip.jumpable(-1) then
                 luasnip.jump(-1)
             end

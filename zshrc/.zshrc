@@ -57,6 +57,9 @@ eval "$(lua ~/.zsh/z/z.lua --init zsh enhanced once fzf)"
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
+# Edit command in editor like vim
+bindkey -M vicmd 'v' edit-command-line
+
 # VI mode settings
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
