@@ -14,7 +14,7 @@ return {
                 visual = '<leader>sa',
                 visual_line = '<leader>sA',
                 delete = '<leader>sd',
-                change = '<leader>sc',
+                change = '<leader>sr',
             },
         })
     end

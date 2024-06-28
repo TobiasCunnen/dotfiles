@@ -33,14 +33,19 @@ vim.o.showmode = false
 -- Shows trailing white spaces and more
 vim.opt.list = true
 vim.opt.listchars:append {
-	tab = "  ",
+	tab = '  ',
 }
 
 -- Keep sign column on by default
 vim.wo.signcolumn = 'yes'
 
 -- Set global clipboard
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = 'unnamedplus'
 
 -- Enable spell check
 vim.opt.spell = true
+
+-- Set :W to save because I do this to much
+vim.api.nvim_create_user_command('W',function()
+    vim.api.nvim_command('w')
+end,{})
