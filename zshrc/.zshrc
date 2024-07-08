@@ -33,10 +33,6 @@ if [[ ! -e ~/.zsh/zsh-history-substring-search ]]; then
   git clone https://github.com/zsh-users/zsh-history-substring-search.git ~/.zsh/zsh-history-substring-search
 fi
 
-if [[ ! -e ~/.zsh/z ]]; then
-  git clone https://github.com/skywind3000/z.lua.git ~/.zsh/z
-fi
-
 if [[ ! -e ~/.zsh/zsh-completions ]]; then
   git clone https://github.com/zsh-users/zsh-completions ~/.zsh/zsh-completions
 fi
@@ -51,7 +47,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-vi-mode/zsh-vi-mode.zsh
 source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.zsh/zsh-completions/zsh-completions.plugin.zsh
-eval "$(lua ~/.zsh/z/z.lua --init zsh enhanced once fzf)"
+eval "$(zoxide init zsh)"
 
 # Add vim keybindings to substring search
 bindkey -M vicmd 'k' history-substring-search-up
@@ -65,7 +61,7 @@ VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
 
 # Add items to path
-export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:/usr/local/go/bin
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'

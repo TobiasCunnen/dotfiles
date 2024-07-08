@@ -12,12 +12,6 @@ return {
         -- Adds a number of user-friendly snippets
         'rafamadriz/friendly-snippets',
         'onsails/lspkind.nvim',
-        {
-            "Exafunction/codeium.nvim",
-            cmd = "Codeium",
-            build = ":Codeium Auth",
-            opts = {},
-        },
     },
     config = function()
         local cmp = require('cmp')
@@ -42,7 +36,6 @@ return {
                     mode = "symbol",
                     maxwidth = 50,
                     ellipsis_char = '...',
-                    symbol_map = { Codeium = "", }
                 }),
             },
             mapping = cmp.mapping.preset.insert {
