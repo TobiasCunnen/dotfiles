@@ -1,0 +1,12 @@
+theme = dark:tokyonight_moon,light:tokyoday
+font-size = 16
+mouse-hide-while-typing = true
+maximize = true
+fullscreen = true
+window-decoration = none
+font-family = hacknerdfont
+
+# Links and URL's
+# Don't know yet about this
+# link = true Dit werkt nog niet!!!
+# link-url=true
