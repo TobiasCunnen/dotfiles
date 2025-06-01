@@ -5,6 +5,7 @@ maximize = true
 fullscreen = true
 window-decoration = none
 font-family = hacknerdfont
+confirm-close-surface = false
 
 # Links and URL's
 # Don't know yet about this

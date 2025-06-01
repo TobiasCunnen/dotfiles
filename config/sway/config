@@ -10,7 +10,7 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term kitty
+set $term ghostty
 
 ### Output configuration
 #
@@ -58,7 +58,7 @@ set $term kitty
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+q kill
+    bindsym $mod+c kill
 
     # Start launcher
     bindsym $mod+d exec ags -r 'showAppLauncher.value = !showAppLauncher.value'
