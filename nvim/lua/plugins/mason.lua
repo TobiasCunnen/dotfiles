@@ -20,25 +20,11 @@ return {
         -- If you want to override the default filetypes that your language server will attach to you can
         -- define the property 'filetypes' to the map in question.
         local servers = {
-            bashls = {
-                filetypes = {
-                    'sh', 'bats'
-                }
-            },
             lua_ls = {
                 Lua = {
                     workspace = { checkThirdParty = false },
                     telemetry = { enable = false },
                 },
-            },
-            perlnavigator = {
-                perlnavigator = {
-                    perlPath = 'perl',
-                    enableWarnings = true,
-                    perlcriticEnabled = true,
-                    includePaths = { vim.loop.cwd() .. '/cli/src/lib' },
-                    perltidyProfile = '/home/tcunnen/.perltidyrc',
-                }
             },
             gopls = {
                 gopls = {

@@ -1,6 +1,6 @@
 layout {
     pane size=1 borderless=true {
-        plugin location="file:/home/tcunnen/.zellij-plugins/zjstatus.wasm" {
+        plugin location="file:/home/tcunnen/dotfiles/zellij/plugins/zjstatus.wasm" {
             format_left  "#[fg=#89B4FA,bold]{session}{mode} {tabs}"
             format_right "{datetime}"
             format_space ""

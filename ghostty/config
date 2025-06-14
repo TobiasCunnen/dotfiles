@@ -1,5 +1,5 @@
 theme = dark:tokyonight_moon,light:tokyoday
-font-size = 16
+font-size = 18
 mouse-hide-while-typing = true
 maximize = true
 fullscreen = true
